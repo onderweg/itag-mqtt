@@ -1,0 +1,11 @@
+# Object files
+*.o
+
+# IDE files
+.vscode
+
+# OS
+.DS_Store
+
+# Build files
+build/
