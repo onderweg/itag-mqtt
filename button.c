@@ -1,17 +1,17 @@
+#include "MQTTClient.h"
+#include "gattlib.h"
 #include <glib.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "MQTTClient.h"
-#include "gattlib.h"
 
 #define MQTT_TOPIC_TEMP_FMT "home/buttons/itag/%s"
 #define MQTT_HOST "localhost"
 
 const uuid_t g_click_notify_uuid = CREATE_UUID16(0xffe1);
-GMainLoop* loop;
-gatt_connection_t* connection;
-char* addr;
+GMainLoop *loop;
+gatt_connection_t *connection;
+char *addr;
 
 int mqtt_publish() {
   // MQTT Client setup
@@ -27,8 +27,8 @@ int mqtt_publish() {
   }
 
   // Publish message
-  char* topic = g_strdup_printf(MQTT_TOPIC_TEMP_FMT, addr);
-  char* payload = "click";
+  char *topic = g_strdup_printf(MQTT_TOPIC_TEMP_FMT, addr);
+  char *payload = "click";
   MQTTClient_message pubmsg = MQTTClient_message_initializer;
   pubmsg.payload = payload;
   pubmsg.payloadlen = strlen(pubmsg.payload);
@@ -45,10 +45,10 @@ int mqtt_publish() {
   return rc;
 }
 
-void notification_handler(const uuid_t* uuid,
-                          const uint8_t* data,
+void notification_handler(const uuid_t *uuid,
+                          const uint8_t *data,
                           size_t data_length,
-                          void* user_data) {
+                          void *user_data) {
   printf("Click notification received. Data: ");
   int i;
   for (i = 0; i < data_length; i++) {
@@ -58,7 +58,7 @@ void notification_handler(const uuid_t* uuid,
   mqtt_publish();
 }
 
-static void usage(char* argv[]) {
+static void usage(char *argv[]) {
   printf("Usage: %s <device_address>\n", argv[0]);
 }
 
@@ -66,7 +66,7 @@ void ctrlc_handler(int signal) {
   g_main_loop_quit(loop);
 }
 
-int connect_device(char* deviceAddr) {
+int connect_device(char *deviceAddr) {
   int attempt = 1;
   do {
     printf("Connection attempt %d\n", attempt);
@@ -86,7 +86,7 @@ int start_listener() {
   return ret;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
   int ret;
   char uuid_str[64];
 
