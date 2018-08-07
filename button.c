@@ -74,7 +74,7 @@ int connect_device(char *deviceAddr) {
         gattlib_connect(NULL, deviceAddr, BDADDR_LE_PUBLIC, BT_SEC_LOW, 0, 0);
     if (connection == NULL) {
       printf("Failed to connect to the bluetooth device [%s]\n", addr);
-      sleep(2);
+      sleep(3);
     }
   } while (connection == NULL && ++attempt <= 3);
   return (connection == NULL);
