@@ -7,6 +7,9 @@ Publish iTag button press notifications to MQTT queue.
 An iTag is cheap (< 2 euro) BLE device equipped with button and piezzo buzzer. This program listens to button
 press notifications, and publishes a message to a MQTT queue on press.
 
+![iTag](itag.jpg)
+
+
 ## Build
 
 Requirements:
