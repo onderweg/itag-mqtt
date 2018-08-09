@@ -9,5 +9,4 @@ LDFLAGS+=-lgattlib
 LDFLAGS+=-lpaho-mqtt3c
 
 all: $(SRC)
-	$(CC) $(SRC) $(CFLAGS) -o $(TARGET) $(LDFLAGS)
-
+	$(CC) -Wall $(SRC) $(CFLAGS) -o $(TARGET) $(LDFLAGS)
