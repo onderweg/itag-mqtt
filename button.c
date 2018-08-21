@@ -1,3 +1,12 @@
+/*
+ * iTag to MQTT
+ * 
+ * Simple command line tool that forward iTag button 
+ * click notifications to a MQTT queue.
+ * 
+ * @author Gerwert
+ */
+
 #include "MQTTClient.h"
 #include "gattlib.h"
 #include <glib.h>
@@ -5,7 +14,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define MQTT_TOPIC_TEMP_FMT "home/buttons/itag/%s"
+#define MQTT_TOPIC_TEMP_FMT "home/itags/%s"
 #define MQTT_HOST "localhost"
 
 const uuid_t g_click_notify_uuid = CREATE_UUID16(0xffe1);
@@ -107,7 +116,7 @@ int main(int argc, char *argv[]) {
 
   ret = start_listener();
   if (ret) {
-    printf("Failed to start notification for UUID %s\n", uuid_str);
+    printf("Failed to start notifications for UUID %s\n", uuid_str);
     return 1;
   }
   printf("Notifications started for UUID %s\n", uuid_str);
