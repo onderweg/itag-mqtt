@@ -11,3 +11,5 @@ LDFLAGS+=-lpaho-mqtt3c
 all: $(SRC)
 	$(CC) $(SRC) $(CFLAGS) -o $(TARGET) $(LDFLAGS)
 
+.PHONY: all
+
