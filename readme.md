@@ -1,13 +1,9 @@
 # iTag to MQTT
 
-Publish iTag button press notifications to MQTT queue.
-
 An iTag is cheap (< 2 euro) Bluetooth Low Energy (BLE) device equipped with a button and piezzo buzzer. 
+This CLI tool publishes iTag button press notifications to a MQTT queue.
 
-This program listens to button
-press notifications, and publishes a message to a MQTT queue on press.
-
-![iTag](itag.jpg)
+<img src="itag.jpg" width="350"/>
 
 ## Build
 
