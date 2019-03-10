@@ -1,7 +1,5 @@
 # iTag to MQTT
 
-*work in progress*
-
 Publish iTag button press notifications to MQTT queue.
 
 An iTag is cheap (< 2 euro) Bluetooth Low Energy (BLE) device equipped with a button and piezzo buzzer. 
